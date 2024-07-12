@@ -16,4 +16,4 @@ def monitor_network(duration=60):
     while time.time() - start_time < duration:
         net_info = get_network_info()
         logging.info(f"Bytes Enviados: {net_info['bytes_sent']}, Bytes Recebidos: {net_info['bytes_recv']}")
-        time.sleep(10)
+        time.sleep(100)
