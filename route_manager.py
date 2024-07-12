@@ -33,3 +33,13 @@ def delete_route(destination):
         logging.info(f"Rota para {destination} removida com sucesso.")
     else:
         logging.error(f"Falha ao remover rota para {destination}.")
+
+
+def add_multiple_routes(routes):
+    for destination, gateway in routes.items():
+        add_route(destination, gateway)
+
+
+def delete_multiple_routes(destinations):
+    for destination in destinations:
+        delete_route(destination)

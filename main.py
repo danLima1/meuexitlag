@@ -1,7 +1,7 @@
 import time
 from network_monitor import monitor_network
 from latency_monitor import monitor_latency
-from route_manager import add_route, delete_route
+from route_manager import add_multiple_routes, delete_multiple_routes
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -18,8 +18,14 @@ if __name__ == "__main__":
     logging.info("Monitorando a latência...")
     monitor_latency(hosts_to_check, duration)
 
-    # Adicionar ou ajustar rotas conforme necessário
+    # Adicionar múltiplas rotas
     logging.info("Ajustando as rotas...")
-    add_route("52.95.110.1", "192.168.0.1")
-    # Para deletar uma rota, descomente a linha abaixo
-    # delete_route("52.95.110.1")
+    routes_to_add = {
+        "162.159.192.10": "192.168.1.1",  # IP identificado do servidor de Fortnite
+        "52.95.110.1": "192.168.1.1"  # Outro exemplo de IP
+    }
+    add_multiple_routes(routes_to_add)
+
+    # Para deletar múltiplas rotas, descomente as linhas abaixo
+    # routes_to_delete = ["162.159.192.10", "52.95.110.1"]
+    # delete_multiple_routes(routes_to_delete)
